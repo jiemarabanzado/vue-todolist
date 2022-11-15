@@ -5,13 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <div id="app">
-        <h1>{{message}}</h1>
-
+        <div class="container">
+            <div class="head-img">
+                <img src="img/logo.png" alt="logo">
+            </div>
+            <div class="text-field">
+                <form action="" @submit.prevent="addTask" >
+                    <input id="in-field" type="text" v-model="toAdd">
+                    <button type="submit"id="add">aggiungi</button>
+                </form>
+            </div>
+            <div class="list">
+                <ul>
+                    <li v-for="(elm,index) in Tasks">
+                        <div class="to-do">
+                            <div class="what-to" @click="markDone">
+                                {{elm.task}}
+                            </div>
+                            <div id="erease" @click="removeTask">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
     </div>
 
